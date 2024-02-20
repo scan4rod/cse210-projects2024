@@ -41,7 +41,7 @@ public class BreathingActivity : Activity
 
         }
 
-        // Implement the specific behavior for the BreathingActivity here
+
     }
 }
 
