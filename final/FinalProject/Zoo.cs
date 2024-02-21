@@ -3,6 +3,16 @@ class Zoo
     private List<Enclosure> _enclosures = new List<Enclosure>();
     private List<ZooKeeper> _zooKeepers = new List<ZooKeeper>();
     private List<Veterinarian> _veterinarians = new List<Veterinarian>();
+    private List<Animal> _animals = new List<Animal>();
+
+    public void AddAnimal(Animal animal)
+    {
+        _animals.Add(animal);
+        Console.WriteLine("Animal added to the zoo.");
+        Enclosure enclosure = new Enclosure();
+        enclosure.AddAnimal(animal);
+
+    }
 
     public void AddEnclosure(Enclosure enclosure)
     {
@@ -41,6 +51,12 @@ class Zoo
         foreach (var veterinarian in _veterinarians)
         {
             Console.WriteLine($"Name: {veterinarian.GetName()}, Specialization: {veterinarian.GetSpecialization()}");
+        }
+
+        Console.WriteLine("Animals:");
+        foreach (var animal in _animals)
+        {
+            Console.WriteLine($"Name: {animal.GetName()}, Age: {animal.GetAge()}, Gender:{animal.GetGender()}");
         }
     }
 }

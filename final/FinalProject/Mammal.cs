@@ -35,3 +35,4 @@ class Mammal : Animal
         Console.WriteLine($"Fur Color: {GetFurColor()}, Type of Mammal: {GetTypeOfMammal()}");
     }
 }
+

@@ -11,7 +11,7 @@ class Program
         {
             Console.WriteLine("\nMain Menu Options: ");
             Console.WriteLine("  1. Zoo Management");
-            Console.WriteLine("  5. Quit");
+            Console.WriteLine("  2. Quit");
             Console.Write("Select a choice from the main menu: ");
             string opt = Console.ReadLine();
 
@@ -26,7 +26,7 @@ class Program
                 }
             }
 
-        } while (choice != 5);
+        } while (choice != 2);
     }
 
     static void ZooManagementMenu()
@@ -35,11 +35,13 @@ class Program
         do
         {
             Console.WriteLine("\nZoo Management Menu Options: ");
-            Console.WriteLine("  1. Add Enclosure");
-            Console.WriteLine("  2. Add ZooKeeper");
-            Console.WriteLine("  3. Add Veterinarian");
-            Console.WriteLine("  4. Display Zoo Information");
-            Console.WriteLine("  5. Back to Main Menu");
+            Console.WriteLine("  1. Add Animal");
+            Console.WriteLine("  2. Add Enclosure");
+            Console.WriteLine("  3. Add ZooKeeper");
+            Console.WriteLine("  4. Add Veterinarian");
+            Console.WriteLine("  5. Display Zoo Information");
+            Console.WriteLine("  6. Back to Main Menu");
+
             Console.Write("Select a choice from the zoo management menu: ");
             string opt = Console.ReadLine();
 
@@ -48,20 +50,24 @@ class Program
                 switch (zooChoice)
                 {
                     case 1:
-                        AddEnclosure();
+                        AddAnimal();
                         break;
                     case 2:
-                        AddZooKeeper();
+                        AddEnclosure();
                         break;
                     case 3:
-                        AddVeterinarian();
+                        AddZooKeeper();
                         break;
                     case 4:
-                        DisplayZooInformation();
+                        AddVeterinarian();
                         break;
                     case 5:
+                        DisplayZooInformation();
+                        break;
+                    case 6:
                         Console.WriteLine("Returning to the main menu.");
                         break;
+
                     default:
                         Console.WriteLine("Invalid choice. Please enter a number between 1 and 5.");
                         break;
@@ -86,6 +92,23 @@ class Program
 
         zoo.AddEnclosure(enclosure);
         Console.WriteLine("Enclosure added to the zoo.");
+    }
+
+    static void AddAnimal()
+    {
+        Animal animal = new Animal();
+
+        Console.Write("Enter the name of the animal: ");
+        animal.SetName((Console.ReadLine()));
+
+        Console.Write("Enter the age of the animal: ");
+        animal.SetAge(int.Parse(Console.ReadLine()));
+
+        Console.Write("Enter the gender of the animal: ");
+        animal.SetGender(Console.ReadLine());
+
+        zoo.AddAnimal(animal);
+        Console.WriteLine("Animal added to the zoo.");
     }
 
     static void AddZooKeeper()
